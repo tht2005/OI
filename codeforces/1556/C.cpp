@@ -35,24 +35,18 @@ if(fopen(TASK".inp","r")){
     freopen("log.txt", "w", stderr);
 }
     ios::sync_with_stdio(false); cin.tie(NULL);
-    cin>>n;
-    FOR(i,1,n){
-        cin>>a[i];
-        if(!(i&1))a[i]=-a[i];
-    }
+    cin>>n; FOR(i,1,n)cin>>a[i];
     ll res=0;
-    FOR(i,1,n){
-        ll sum=a[i],minB=a[i];
-        if(i&1){
-            for(int j=i+1;j<=n;++j){
-                if(a[i]<minB)break;
-                if(!(j&1)){
-                    ll l=max(0ll,sum+a[j]);
-                    ll r=min({minB,sum-1,a[i]-1});
-                    if(l<=r)res+=r-l+1;
-                }
+    for(int i=1;i<=n;i+=2){
+        ll sum=0,mn=0;
+        FOR(j,i+1,n){
+            if(j%2){
                 sum+=a[j];
-                minimize(minB,sum);
+            }
+            else{
+                res+=max(0ll,min(a[i]-mn,a[j]-sum-mn)+(j!=i+1));
+                sum-=a[j];
+                maximize(mn,-sum);
             }
         }
     }
