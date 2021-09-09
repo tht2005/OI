@@ -26,8 +26,8 @@ typedef long long ll;
 
 int main()
 {
-    freopen(TASK".in","r",stdin);
-    freopen(TASK".out","w",stdout);
+    	freopen(TASK".in","r",stdin);
+    	freopen(TASK".out","w",stdout);
 	ios::sync_with_stdio(false); cin.tie(NULL);
 	int n,p; cin>>n>>p;
 	int res=0;
