@@ -8,10 +8,10 @@
     def merge({A, B}, {C, D}):  // merge A paths with total length B and C paths with total length D
         return {AC, AD + BC};
     
-        We must use k x-length-edges so let's start with 1 (k * x)-length-edge, merge the infomation with all of the
-    component.
+        We must use k x-length-edges so let's start with 1 (k * x)-length-edge, merge the information of all
+    components.
     
-        Finally, we incorporate the ordering of trees we visit. Given a combination of k paths, we can visit in k! orders.
+        Finally, incorporate the ordering of trees we visit. Given a combination of k paths, we can visit in k! orders.
     Suppose the path P_i in i-th component start at vertex s_i, end at t_i. Consider a random loop, each P_i we can decide
     to start at s_i or t_i, so there're 2^k ways. For each configuration, we overcount a factor of 2k (circular rotation
     and it's reverse direction). So we just need to multiply the sum of all path combination that have length >= y by
