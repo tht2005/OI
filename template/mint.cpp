@@ -1,4 +1,4 @@
-template<typename T, T md = 1000000007>
+template<typename T, T md>
 struct mint
 {
     T val;
@@ -11,9 +11,9 @@ struct mint
     mint operator- (mint rhs) { return mint(sub(val, rhs.val)); }
     mint operator* (mint rhs) { return mint(mul(val, rhs.val)); }
  
-    void operator+= (mint rhs) { val = add(val, rhs.val); }
-    void operator-= (mint rhs) { val = sub(val, rhs.val); }
-    void operator*= (mint rhs) { val = mul(val, rhs.val); }
+    mint& operator+= (mint rhs) { val = add(val, rhs.val); return *this; }
+    mint& operator-= (mint rhs) { val = sub(val, rhs.val); return *this; }
+    mint& operator*= (mint rhs) { val = mul(val, rhs.val); return *this; }
  
     friend istream& operator>> (istream& is, mint& rhs) { return is >> rhs.val; }
     friend ostream& operator<< (ostream& os, mint& rhs) { return os << rhs.val; }
