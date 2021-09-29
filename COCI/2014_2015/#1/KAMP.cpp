@@ -79,12 +79,9 @@ int main()
 	}
 	S = 0;
 	dfs(r, -1);
-	for(int i = 1; i <= n; ++i) if(col[i]) {
-		dfs2(i, -1);
-		dfs3(i, -1, 0);
-		dfs4(i, -1, 0, i);
-		break;
-	}
+	dfs2(r, -1);
+	dfs3(r, -1, 0);
+	dfs4(r, -1, 0, r);
 	for(int i = 1; i <= n; ++i) {
 		cout << dist[i] + 2 * S - far[near[i]] << '\n'; 
 	}
