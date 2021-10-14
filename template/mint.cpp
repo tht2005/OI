@@ -18,7 +18,7 @@ struct mint
     mint& operator/= (mint rhs) { val = div(val, rhs.val); return *this; }
  
     friend istream& operator>> (istream& is, mint& rhs) { return is >> rhs.val; }
-    friend ostream& operator<< (ostream& os, mint& rhs) { return os << rhs.val; }
+    friend ostream& operator<< (ostream& os, mint rhs) { return os << rhs.val; }
 
     T power(T a, T b)
     {
