@@ -47,6 +47,6 @@ struct mint
 
     inline T div(T a, T b)
     {
-        return 1ll * a * power(b, md - 2);
+        return mul(a, power(b, md - 2));
     }
 };
