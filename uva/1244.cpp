@@ -48,7 +48,7 @@ int main()
 			}
 		}
 		string res = dp(0, n - 1);
-		if(res.empty()) {
+		if(res == "*") {
 			cout << "NO PALINDROMIC PATH" << '\n';
 		}
 		else {
