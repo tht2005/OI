@@ -36,6 +36,7 @@ struct cht {
         if(n == 0 || L[n - 1].k != nw.k) L[n++] = nw;
     }
     line_t query(LL x) {
+        if(p >= n) p = n - 1;
         while(p + 1 < n && L[p](x) > L[p + 1](x)) ++p;
         return L[p];
     }
