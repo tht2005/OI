@@ -7,7 +7,6 @@ int n;
 long long res;
 char s[N];
 int nNode, edge[N][26], link[N], len[N], f[N];
-vector<int> aj[N];
 
 int main() {
     scanf("%s", s);
@@ -35,10 +34,7 @@ int main() {
     }
     res = 0;
     for(int i = nNode; i--; ) {
-        aj[link[i]].push_back(i);
-        for(int j : aj[i]) {
-            f[i] += f[j];
-        }
+        f[link[i]] += f[i];
         res = max(res, (long long)len[i] * f[i]);
     }
     printf("%lld", res);
