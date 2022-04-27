@@ -10,7 +10,7 @@ void add(int& a, int b) {
 }
 
 const int N = 500005;
-int n, m, res, x[N], y[N], pref[26], suf[26], tmp[26], f[N][26];
+int n, m, res, x[N], y[N], pref[26], suf[26], f[N][26];
 stack<int> S, T;
 
 int main() {
@@ -49,20 +49,14 @@ int main() {
             }
             T.pop();
         }
-        for(int c = 0; c < 26; ++c) {
-            tmp[c] = pref[c];
+        for(int c = 0, s = 0; c < 26; ++c) {
             f[i][c] = 1;
-            if(c) {
-                add(tmp[c], tmp[c - 1]);
-                add(f[i][c], tmp[c - 1]);
-            }
+            add(f[i][c], s);
+            add(s, pref[c]);
         }
-        for(int c = 26; c--; ) {
-            tmp[c] = suf[c];
-            if(c < 25) {
-                add(tmp[c], tmp[c + 1]);
-                add(f[i][c], tmp[c + 1]);
-            }
+        for(int c = 26, s = 0; c--; ) {
+            add(f[i][c], s);
+            add(s, suf[c]);
         }
     }
     for(int c = 0; c < 26; ++c) {
