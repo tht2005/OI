@@ -66,15 +66,7 @@ int main() {
     }
     res = 0;
     for(int i = n - 1, j = m - 1; i || j; ) {
-        if(i == 0) {
-            res += a[0];
-            --j;
-        }
-        else if(j == 0) {
-            res += b[0];
-            --i;
-        }
-        else if(x[i] < y[j]) {
+        if(i != 0 && (j == 0 || x[i] < y[j])) {
             res += b[j];
             --i;
         }
