@@ -10,6 +10,13 @@ private:
 		T value;
 		pnode parent, child[2];
 
+		// additional information
+		// ex: size, count, or dynamic programming
+		// int size_of_subtree;
+		void update() {
+			// update additional information
+		}
+
 		node() {
 			parent = child[0] = child[1] = 0;
 		}
@@ -46,6 +53,12 @@ private:
 			}
 			p->add_child(child[right], !right);
 			add_child(p, right);
+
+			p->update();
+			update();
+			if(g) {
+				g->update();
+			}
 		}
 
 		void splay() {
@@ -61,7 +74,8 @@ private:
 			pnode ret = new node[2];
 			ret[0] = this;
 			ret[1] = child[1];
-			del_child(1);
+			ret[0]->del_child(1);
+			ret[0]->update();
 			return ret;
 		}	
 		
@@ -170,6 +184,7 @@ public:
 		mx->splay();
 		assert(!mx->child[1]);
 		mx->add_child(b, 1);
+		mx->update();
 		return mx;
 	}
 	pnode find(const T& val) {
