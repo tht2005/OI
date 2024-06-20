@@ -15,6 +15,14 @@ private:
 		// int size_of_subtree;
 		void update() {
 			// update additional information
+			/*
+   			size_of_subtree = 1;
+      			for(int i = 0; i < 2; ++i) {
+	 			if(child[i]) {
+     					size_of_subtree += child[i]->size_of_subtree;
+     				}
+	 		}
+			*/
 		}
 
 		node() {
